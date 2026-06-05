@@ -4,6 +4,8 @@ import './components/styles.css'
 import Hero from './components/Hero'
 import CelestialCard from './components/CelestialCard'
 
+// rfce enter 
+
 // functional component : a js fn that returns jsx
 function App() {
 

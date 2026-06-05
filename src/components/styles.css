@@ -1,117 +1,213 @@
-/* in Navbar : 
-header : parent
-h2 and <div> : child/item */
-
-/* common styling */
-*{
-    margin: 0;
+/* reset styles */
+* {
+    /* Remove default space outside elements */
+    margin: 0; 
+    /* Removes default space inside elements */
     padding: 0;
-    box-sizing: border-box;
+    /* Ensure borders/padding don't increase the total width of an element i.e 
+    i.e include these 2 while calculating width of element*/
+    box-sizing: border-box; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
-body{
-    background-color: black;
-    color:whitesmoke;
+body {
+    /* A very deep, dark blue/black space background */
+    background-color: #050510; 
+    color: #ffffff; 
+    /* minm background must be 100% of the viewport height, swipe/slide screen if > 100% */
+    min-height: 100vh; 
 }
 
-.nav{
-    /* display child cards side by side */
-    display: flex;
-    /* 1st item pushed to left, last item to right, remaining in btwn, 
-    no space before 1st and after last item */
+/* Navbar =>
+for flex,
+parent : .nav
+child : .nav_links, img, h2*/
+.nav {
+    /* Turns on Flexbox for the header, default displays children side by side (inline) */
+    display: flex; 
+    /* Push the logo/title to the extreme left, links to the extreme right, on Main axis = X-axis */
     justify-content: space-between;
+    /* Vertically centering items/children within the navbar, Cross axis = on Y-axis */ 
+    align-items: center;
+    /* 15px spacing top/bottom, 40px spacing left/right */ 
+    padding: 15px 40px; 
+    /*  80% opacity i.e. less transparent more solid */
+    background-color: rgba(5, 5, 16, 0.8);
+    /* when scrolling SPA up/down, blur the content scrolling behind the navbar */ 
+    backdrop-filter: blur(10px); 
+    /* Keeps the navbar stuck to the top when scrolling */
+    position: sticky;
+    /*  navbar is stuck exactly at the 0px mark of the screen, to access anytime */ 
+    top: 0; 
+     /* allow the navbar to stay on top of all other elements, no element can overlap over navbar*/
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+
+/* for flex,
+parent : .navlinks
+children : 3 <div> tags */
+.navlinks {
+    /* Turns on Flexbox for all 3 childre, defaults to children displayed side by side */
+    display: flex; 
+    /* 30px gap btwn each child */
+    gap: 30px; 
+
+    font-size: 18px; 
+    font-weight: 500;
+    /* Change the mouse to a pointing hand on hovering over these 3 divs to indicate selecting action */ 
+    cursor: pointer; 
+}
+
+/* for flex,
+parent : .welcome_section
+children : h1, p tags*/
+.welcome_section {
+    /* Uses a linear gradient overlay to darken the background image, making text easier to read */
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('https://scx2.b-cdn.net/gfx/news/2020/2-space.jpg');
+    /*  image must cover the entire section without stretching out of proportion */
+    background-size: cover; 
+    /* Center the focus of the background image */
+    background-position: center; 
+    /* Take 50% of the screen's height */
+    height: 50vh; 
+
+    /* Turns on Flexbox for both children, default to side by side (row) display of children*/
+    display: flex; 
+    /* Stacks the h1 and p tags vertically instead of side-by-side (row->column) */
+    flex-direction: column; 
+    /* Vertically centers the text within the 50vh height : since column, MAin axis = Y axis, Cross AXis = X-axis*/
+    justify-content: center;
+    /* Horizontally centers the text : since column, MAin axis = Y axis, Cross AXis = X-axis*/ 
+    align-items: center;
+    /* center multi-line text within its own box */ 
+    text-align: center;
+    /* Prevent text from touching the screen edges on small devices */ 
+    padding: 20px; 
+}
+
+.welcome_section h1 {
+    /* Very large text for the main heading */
+    font-size: 4rem; 
+    /*Spaces out the letters slightly for a cinematic look */
+    letter-spacing: 2px; 
+    /* Pushes the paragraph tag down away from the heading */
+    margin-bottom: 15px; 
+    /* Creates a cyan glowing effect behind the text */
+    text-shadow: 0px 4px 15px rgba(0, 240, 255, 0.5); 
+}
+
+/* card grid
+for flex,
+parent : .card_parent
+child : the_card */
+.card_parent {
+    /* Turns on Flexbox to lay out the cards/children, default display side by side */
+    display: flex; 
+    /* CRITICAL: Tells cards to drop to the next line if they run out of room, if row full->new card goes to next row */
+    flex-wrap: wrap; 
+    /* Centers the whole grid of cards on the screen, since row so about Main axis here X=axis */
+    justify-content: center; 
+    /* Puts exactly 40px of space between all rows and columns of cards */
+    gap: 40px; 
+
+    /* 60px space above/below the card parent/grid, 20px on the sides */
+    padding: 60px 20px;
+    /* Stops the grid from getting too wide on massive monitors */
+    max-width: 1200px;
+    /* Centers the max-width container on the page : top/bottom : 0, left/right : auto*/ 
+    margin: 0 auto; 
+}
+
+/* INDIVIDUAL CARD (.the_card) 
+for flex,
+parent : the_card
+children : h2, img, h3, p tags*/
+.the_card {
+
+    /* Glassmorphism Effect : popular UI design => (semi-transparent backgrounds with background blurs). */
+
+    /* Very transparent white background */
+    background: rgba(255, 255, 255, 0.05); 
+    /* Blurs the background behind the card, on scrolling */
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); /* Safari support for blur */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Faint white border to define the edge */
+    border-radius: 16px; /* Rounds the corners of the card */
     
-    padding: 20px;
-}
+    /* Layout Setup */
 
-
-.nav>.navlinks{
-    /* navlinks : parent
-        <div> : child
-     */
-    /* display children side by side */
-    display: flex;
-    /* space btwn each child */
-    gap:20px;
-    font-size: 20px;
-}
-
-/* parent : welcome_section
-child : h1 and p tags */
-.welcome_section{
-    background-image: url('https://scx2.b-cdn.net/gfx/news/2020/2-space.jpg');
-    background-repeat: no-repeat;
-    /* size in x and y axis */
-    background-size: 100% 100%;
-    width: 100%;
-    height: 600px;
-
-    /* enable flex applying on its children */
-    display: flex;
-    /* need both children in center i.e center of X and Y axis */
-    justify-content: center;
-    align-items: center;
-    /* but above properties give both in same line i.e row BUT want in col */
+    /*  all cards  be the exact same width */
+    width: 320px;
+    /* Flexbox for the card internals(children), default to side by side display(row) */
+    display: flex; 
+    /* Stacks image, title, and text vertically , since column : Main axis-Y-axis, Cross Axis - X-axis, and row->column*/
     flex-direction: column;
+    /* For Cross Axis (for column its Y-axis) Horizontally centers the text and image inside the card */ 
+    align-items: center; 
+
+    /* Space between the card border and its contents */
+    padding: 25px; 
+    
+    /* Animation Setup */
+
+    /* Tells the browser to smoothly animate hover state changes over 0.3 seconds */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
-.welcome_section>h1{
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 3rem;
-    line-height: 5;
-    letter-spacing: 1px;
-    /* horizonalshadow verticalshadow blur (color+transparency) */
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+/* Hover Effect: What happens when the mouse is over the card */
+.the_card:hover {
+    /* Lifts the card UP(+) by 10 pixels */
+    transform: translateY(-10px); 
+    /* Adds a cyan shadow below to make it look like it's floating */
+    box-shadow: 0 15px 30px rgba(0, 240, 255, 0.15); 
 }
 
-.welcome_section>p{
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    font-size: 20px;
+.the_card>img {
+    /* Makes the image take up the full width of the card's inner padding */
+    width: 100%; 
+    /* Forces a uniform height so unequal images don't break the layout */
+    height: 200px; 
+    /* CRITICAL: Prevents images from squishing or stretching. Crops them beautifully to fit the 200px height */
+    object-fit: cover; 
+    /* Rounds the image corners slightly */
+    border-radius: 12px; 
+    /* Pushes the text down away from the image */
+    margin-bottom: 20px; 
 }
 
-/* card_parent : parent
-    the_card : child */
-.card_parent{
-    /* enable flex prop */
-    display: flex;
-    /* handle multiple children */
-    flex-wrap: wrap;
-    gap: 20px;
+.the_card>h2 {
+    /* Large font for the celestial body name */
+    font-size: 1.8rem; 
+    /* Tiny space between name and type */
+    margin-bottom: 5px;
+    /* Cyan color to match the space theme */ 
+    color: #00f0ff; 
 }
 
-/* the_card : parent
-h2, img, h3, p : child */
-.card_parent>.the_card{
-    /* 1. card content styles */
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid transparent;
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  background:
-    linear-gradient(#0d1117, #0d1117) padding-box,
-    linear-gradient(135deg, #00f0ff, #8a2be2) border-box;
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
-
-
-
-    /* 2. card content layout */
-    /* enable flex prop but got as rows, WANT as columns*/
-    display: flex;
-    /* rows->columns */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* gap btwn each child */
-    gap:20px;
-
-    padding: 20px;
-    margin: 20px;
-
-    /* space taken by each child i.e. the_card */
-    flex-basis: 29.8%;
+.the_card>h3 {
+    /* Medium font for the classification (e.g., Planet) */
+    font-size: 1.1rem;
+    /* Light grey/purple color to de-emphasize it slightly */ 
+    color: #a0a0b0; 
+    /* Normal weight, not bold */
+    font-weight: 400; 
+     /* Space between type and distance */
+    margin-bottom: 15px;
+    /* Automatically capitalizes all letters (if taking input from user) */
+    text-transform: uppercase;
+    /* Spaces letters for a sci-fi look */ 
+    letter-spacing: 1px; 
 }
 
-.card_parent>.the_card>img{
-    width:300px;
-    height: 250px;
+.the_card>p {
+    /* Small grey pill background for the distance */
+    background: rgba(255, 255, 255, 0.1); 
+    /* Inner spacing of the distance pill */
+    padding: 8px 15px; 
+    /* Makes the background highly rounded (pill shape) */
+    border-radius: 20px;
+    /* Slightly smaller text */ 
+    font-size: 0.9rem; 
 }

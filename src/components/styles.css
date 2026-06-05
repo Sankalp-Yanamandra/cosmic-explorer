@@ -1,0 +1,117 @@
+/* in Navbar : 
+header : parent
+h2 and <div> : child/item */
+
+/* common styling */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    color:whitesmoke;
+}
+
+.nav{
+    /* display child cards side by side */
+    display: flex;
+    /* 1st item pushed to left, last item to right, remaining in btwn, 
+    no space before 1st and after last item */
+    justify-content: space-between;
+    
+    padding: 20px;
+}
+
+
+.nav>.navlinks{
+    /* navlinks : parent
+        <div> : child
+     */
+    /* display children side by side */
+    display: flex;
+    /* space btwn each child */
+    gap:20px;
+    font-size: 20px;
+}
+
+/* parent : welcome_section
+child : h1 and p tags */
+.welcome_section{
+    background-image: url('https://scx2.b-cdn.net/gfx/news/2020/2-space.jpg');
+    background-repeat: no-repeat;
+    /* size in x and y axis */
+    background-size: 100% 100%;
+    width: 100%;
+    height: 600px;
+
+    /* enable flex applying on its children */
+    display: flex;
+    /* need both children in center i.e center of X and Y axis */
+    justify-content: center;
+    align-items: center;
+    /* but above properties give both in same line i.e row BUT want in col */
+    flex-direction: column;
+}
+
+.welcome_section>h1{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 3rem;
+    line-height: 5;
+    letter-spacing: 1px;
+    /* horizonalshadow verticalshadow blur (color+transparency) */
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.welcome_section>p{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+/* card_parent : parent
+    the_card : child */
+.card_parent{
+    /* enable flex prop */
+    display: flex;
+    /* handle multiple children */
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* the_card : parent
+h2, img, h3, p : child */
+.card_parent>.the_card{
+    /* 1. card content styles */
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid transparent;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  background:
+    linear-gradient(#0d1117, #0d1117) padding-box,
+    linear-gradient(135deg, #00f0ff, #8a2be2) border-box;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
+
+
+
+    /* 2. card content layout */
+    /* enable flex prop but got as rows, WANT as columns*/
+    display: flex;
+    /* rows->columns */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* gap btwn each child */
+    gap:20px;
+
+    padding: 20px;
+    margin: 20px;
+
+    /* space taken by each child i.e. the_card */
+    flex-basis: 29.8%;
+}
+
+.card_parent>.the_card>img{
+    width:300px;
+    height: 250px;
+}

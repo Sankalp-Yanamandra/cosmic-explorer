@@ -125,7 +125,10 @@ function CelestialCard({name}){
     )
 }
 ```
-
+- js ES6 : `let` and `const` keywords to declare/initialize variables
+```javascript
+const celestialBodies = [...]
+```
 
 <!-- exam Qs, go through later
 1. what is px

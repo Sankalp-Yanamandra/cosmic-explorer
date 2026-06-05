@@ -1,0 +1,162 @@
+
+2nd June 2026
+1.
+<Doctorcard/> : is just a fn call since in .jsx defined as function Doctorcard(){...} [js + html code = .jsx file]
+
+2. interview Q : what are props?
+read only inputs, 
+carries info from parent to child
+communication btwn parent to child
+sent as a Object(key:value) pairs extracted as : objname.key (or) objname['key']
+
+3. defining parameters and sending arguments using 'props'
+function Doctorcard(props) {
+  return (
+    <div className='card'>
+            <img src="https://cdn-icons-png.flaticon.com/512/387/387561.png" width="100"/>
+            <h2>Dr. {props.name}</h2>
+            <p>{props.specialization} Specialist</p>
+            <p>{props.gender}</p>
+            <button>View Details</button>
+    </div>
+  )
+}
+
+
+4. with destructering
+
+function Doctorcard({name, specialization, gender}) {
+  return (
+    <div className='card'>
+            <img src="https://cdn-icons-png.flaticon.com/512/387/387561.png" width="100"/>
+            <h2>Dr. {name}</h2>
+            <p>{specialization} Specialist</p>
+            <p>{gender}</p>
+            <button>View Details</button>
+    </div>
+  )
+}
+
+
+5. comments in .jsx {/*this can be single line or multi line*/}
+
+6. functional component : a js fn that returns jsx element
+
+7. spa : only 1 html file, whole webpage only loaded once, after that only specific components of the page get loaded rather than loading the whole page.
+ 
+--------------------------------------------------------------------------------------------------------------------------------------------
+3rd June 2026
+
+1.(careful its not the usual convention)
+
+Parent component = defines + passes props gen the fn component call
+
+eg. <Doctorcard name="John" specialization="Lungs" gender="Male"/>
+
+Child component = receives + uses props gen the fn definition
+
+eg. function Doctorcard(props) {
+  return (
+    <div className='card'>
+            <img src="https://cdn-icons-png.flaticon.com/512/387/387561.png" width="100"/>
+            <h2>Dr. {props.name}</h2>
+            <p>{props.specialization} Specialist</p>
+            <p>{props.gender}</p>
+            <button>View Details</button>
+    </div>
+  )
+}
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+4th June 2026
+
+[i.]
+my code for form
+import React from 'react'
+
+function Addnewdoctor() {
+  return (
+    <div className='doc_form'>
+        <h2>Add new Doctor</h2>
+        <form action="">
+            {/*just input : doc name, age, select gender(except this is dropdown menu), specialization, salary 
+            and Add Doctor button*/}
+            <input type="text" placeholder='Enter Doctor Name' name="docname"/>
+
+            <input type="number" placeholder='Enter Age' name="age"/>
+
+            <select name="gender" id="addgender">
+                {/* no value given so this option : acts as placeholder */}
+                <option value="">Select Gender</option>
+                <option value="male" >Male</option>
+                <option value="female">Female</option>
+            </select>
+            
+            <input type="text" placeholder='Enter Specialization' name='specialization'/>
+            
+            <input type="number" placeholder='Enter Salary' name='salary'/>
+            
+            <button type='submit'>Add Doctor</button>
+        </form>
+    </div>
+  )
+}
+
+export default Addnewdoctor
+
+[ii.]
+  let count = 0
+  function inccount(){
+    count++
+    console.log(count)
+  }
+can't values directly if want to use Virtual DOM
+
+React only renders on change in state unlike js
+
+soln :
+
+eg. import { useState } from "react"
+
+  let [count, setCount] = useState(0)
+  function inccount(){
+    setCount(count+1)
+    //shows on page
+  }
+<button onClick={inccount}>click {count}</button>
+
+in form:
+
+<input
+type="text"
+value={name}
+onChange={(e)=>setName(e.target.value)}
+/>
+
+[2.]
+
+what are hooks and explain its types.
+
+
+[.3]
+
+
+useState() : a hook
+
+// defines states to store user inputs (states since input going to change again and again)
+
+// const [state, setState] = useState(initialValue)
+// state : current value, setState : update fn 
+
+const [name, setName] = useState('')
+const [age, setAge] = useState('')
+const [gender, setGender] = useState('')
+const [salary, setSalary] = useState('')
+const [specialization, setSpecialization] = useState('')
+
+event : onChange() or onChange= ()=>
+
+controlled component : react controls input state eg. (here) form
+
+<input value={name} onChange={(e)=> setName(e.target.value)} type="text" placeholder='Enter Doctor Name' className='text-field'/>

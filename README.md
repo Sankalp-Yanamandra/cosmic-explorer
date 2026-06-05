@@ -59,6 +59,8 @@ Hero.jsx
 ....
 </header>
 
+// vi. for inline styling style = {{camelCaseProp:value;...}}
+<span style={{fontSize: "20px",fontWeight: "900",color:"#fff", letterSpacing:"6px", textShadow: "0 0 10px #00f0ff, 0 0 20px #0066ff, 0 0 40px #9900ff"}}>HEllo World</span> 
 ```
 - Functional component
 ```javascript

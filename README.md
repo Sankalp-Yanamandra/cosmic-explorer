@@ -1,16 +1,154 @@
-# React + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<!-- title -->
+<h1>Cosmic Explorer</h1>
 
-Currently, two official plugins are available:
+<!-- licence -->
+<a href="https://github.com/sankalp-yanamandra/cosmic-explorer/blob/main/LICENSE">
+        <img src="https://img.shields.io/badge/license-MIT-blue" alt="License">
+</a>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+<!-- gif/screenshot if req -->
+<p>will write later.</p>
+<br/>
 
-## React Compiler
+<!-- project logo -->
+  <img src="src/assets/logo.png" alt="Project Logo" width="100" height="100">
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+<br/>
 
-## Expanding the ESLint configuration
+<!-- description -->
+<p>will write later.</p>
+</div>
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tools Used
+<!-- to handle UI components and states -->
+#### Library : UI components and state management
+- React
+
+#### Build Tool : compiling and local deployment(build)
+- Vite
+
+#### Languages
+-  CSS, JavaScript (v.ES6), JavaScript XML (JSX)
+
+## 🔍 Concepts Used/Applied
+
+- JSX rules : 
+```javascript
+// i. jsx expressions in {}
+name={celestialBodies[0].name}
+// ii. parent element req MUST
+funtion App(){
+    // js code
+    return(
+        <div> //parent element
+            {/*jsx code and comment like this*/}
+        </div>
+    )
+}
+// iii. all tags must be closed or self-closed
+<Navbar/>
+<img ... />
+<h1>....</h1>
+// iv. component file name must begin with Capital letter
+Navbar.jsx
+Hero.jsx
+// v. class => className
+<header className = 'nav'>
+....
+</header>
+
+```
+- Functional component
+```javascript
+function Navbar(){
+    //js code
+    return(
+        //jsx code
+
+        //returns jsx code
+    )
+}
+```
+- CSS Flexbox stylings
+```css
+.nav {
+    /* Turns on Flexbox for the header, default displays children side by side (inline) */
+    display: flex; 
+    /* Push the logo/title to the extreme left, links to the extreme right, on Main axis = X-axis */
+    justify-content: space-between;
+    /* Vertically centering items/children within the navbar, Cross axis = on Y-axis */ 
+    align-items: center;
+}
+```
+- Props (properties to send READ-ONLY i/p from parent to child component)
+```javascript
+// parent component
+function App(){
+    //js code
+    return(
+        <div>
+        {/*or name={celestialBodies[0].name}*/} 
+        <CelestialCard name="Mars"/>
+        </div>
+    )
+}
+//child component
+function CelestialCard(props){
+    return(
+        <div>
+            <h2>Name : {props.name}</h2>
+        </div>
+    )
+}
+```
+
+- Destructuring : extract values from arrays/objects and store in variables
+```javascript
+// parent component
+function App(){
+    //js code
+    return(
+        <div>
+        {/*or name={celestialBodies[0].name}*/} 
+        <CelestialCard name="Mars"/>
+        </div>
+    )
+}
+//child component
+function CelestialCard({name}){
+    return(
+        <div>
+            <h2>Name : {name}</h2>
+        </div>
+    )
+}
+```
+
+
+<!-- exam Qs, go through later
+1. what is px
+2. what is vite 
+3. what is nodejs
+4. what is npm
+5. what is release in github, is it req for proj-->
+
+## Installation and Setup
+
+1. **Clone this repo**
+```bash
+git clone https://github.com/Sankalp-Yanamandra/cosmic-explorer.git
+```
+2. **Navigate to project directory**
+```bash
+cd cosmic-explorer
+```
+3. **Install Node Package Modules**
+```bash
+npm install
+```
+4. **start local development server**
+```bash
+npm run dev
+```

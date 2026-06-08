@@ -1,0 +1,10 @@
+# Treat all JSX files as standard JavaScript
+*.jsx linguist-language=JavaScript
+
+# Hide auto-generated or static files from the language bar
+public/* linguist-vendored
+build/* linguist-vendored
+package-lock.json linguist-vendored
+
+# Treat all CSS files as "vendored" (meaning GitHub will ignore them in stats)
+*.css linguist-vendored

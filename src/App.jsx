@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import './components/styles.css'
 import Hero from './components/Hero'
 import CelestialCard from './components/CelestialCard'
+import DiscoveryForm from './components/DiscoveryForm'
 
 // rfce enter 
 
@@ -37,6 +38,7 @@ function App() {
     <div>
       <Navbar/>
       <Hero/>
+      <DiscoveryForm/>
       {/* jsx expression in {} (similar to js ${}) */}
       <div className='card_parent'>
         <CelestialCard name={celestialBodies[0].name} image={celestialBodies[0].image} type={celestialBodies[0].type} distance={celestialBodies[0].distance}/>

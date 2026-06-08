@@ -32,8 +32,8 @@
 #### Languages
 -  CSS, JavaScript (v.ES6), JavaScript XML (JSX)
 
-## 🔍 Concepts Used/Applied
-
+## 🔍 Phase 1 : Intial Page Layout
+- Built basic web application layout using react-js, jsx, css, js-ES6+
 - JSX rules : 
 ```javascript
 // i. jsx expressions in {}
@@ -138,6 +138,20 @@ const celestialBodies = [...]
 3. what is nodejs
 4. what is npm
 5. what is release in github, is it req for proj-->
+
+## 🔍 Phase 2 : Basic Interactivity using Form Component
+- Discovery form to maintain own collections of celestial bodies.
+- concepts learned/applied:
+    - `Controlled Components` : used React `state` for form inputs (to allow React to control and immediately render component to display new value)
+    - for each field, on typing triggered event : `onChange` which set the values of corresponding states : `setState(typeevent.target.value)`
+    ```javascript
+        let [celestial_name, setCelestialName] = useState('')
+        <input ....          
+          value={celestial_name}
+          onChange={(typeevent)=>{setCelestialName(typeevent.target.value)}} />
+    ```
+    - - on submitting form, removed the default form feature of page refresh to store input data using `submitevent.preventDefault()`
+
 
 ## Installation and Setup
 

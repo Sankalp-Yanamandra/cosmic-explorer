@@ -211,3 +211,139 @@ children : h2, img, h3, p tags*/
     /* Slightly smaller text */ 
     font-size: 0.9rem; 
 }
+
+/* Discovery Form - to add items to my collections
+class = mycollections */
+
+.my-collections {
+    /* Center form section horizontally and 40px space top and below */
+    margin: 40px auto;
+    /*max width of form container*/
+    max-width: 600px;
+    /* 20px of space on the left and right to avoid touching the border */
+    padding: 0 20px;
+}
+
+/* parent : .add-collections 
+children : label, input, select */
+.add-collections {
+    /* Turn on Flexbox to layout the form elements, default display children side by side */
+    display: flex;
+    /* children : row -> column */
+    flex-direction: column;
+    /* 20px gap btwn children*/
+    gap: 20px;
+    /* Glassmorphism: a very transparent white background */
+    background: rgba(255, 255, 255, 0.05);
+    /* Glassmorphism: Blur everything behind the form container */
+    backdrop-filter: blur(12px);
+    /* Safari support for the background blur effect */
+    -webkit-backdrop-filter: blur(12px);
+    /* Adds a faint white border around the form container */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Rounds the corners of the form container */
+    border-radius: 16px;
+    /* Adds generous space inside the form so elements don't touch the borders */
+    padding: 40px;
+    /* Adds a soft, cyan-tinted shadow behind the form for depth */
+    box-shadow: 0 10px 30px rgba(0, 240, 255, 0.05);
+}
+
+.add-collections label {
+    /* Sets the label text size to be slightly larger than standard body text */
+    font-size: 1.1rem;
+    /* Sets the text color to a soft, readable off-white */
+    color: #e0e0e0;
+    /* Makes the label text slightly thicker than normal text */
+    font-weight: 500;
+    /* Spaces the letters out slightly for readability */
+    letter-spacing: 0.5px;
+}
+
+/* We target both inputs and the select dropdown at the same time */
+.add-collections input,
+.add-collections select {
+    /* Makes the input fields take up the full width of the form container */
+    width: 100%;
+    /* Adds vertical and horizontal space inside the input fields for typing */
+    padding: 12px 15px;
+    /* Sets the background of the inputs to a very dark, semi-transparent color */
+    background: rgba(0, 0, 0, 0.3);
+    /* Creates a subtle grey border around the inputs */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Rounds the corners of the input fields */
+    border-radius: 8px;
+    /* Ensures the text typed by the user is white */
+    color: #ffffff;
+    /* Sets a readable text size for typing */
+    font-size: 1rem;
+    /* Ensures the transition between normal and focused states is smooth over 0.3 seconds */
+    transition: all 0.3s ease;
+}
+
+/* Target the placeholder text inside the inputs specifically */
+.add-collections>input::placeholder {
+    /* Sets the placeholder text to a dim grey color so it's not confused with real values */
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Target the dropdown menu specifically */
+.add-collections select {
+    /* Changes the mouse cursor to a pointing hand when hovering over the dropdown */
+    cursor: pointer;
+}
+
+/* Target the options inside the dropdown menu */
+.add-collections select option {
+    /* Sets the background of the dropdown options so they are readable (browsers don't support glass blur on native select options well) */
+    background-color: #050510;
+    /* Sets the text color of the dropdown options to white */
+    color: white;
+}
+
+/* What happens when the user clicks inside an input or select field (focus state) */
+.add-collections input:focus,
+.add-collections select:focus {
+    /* Removes the default browser outline when the input is clicked */
+    outline: none;
+    /* Changes the border color to our space theme's cyan when active */
+    border-color: #00f0ff;
+    /* Adds a glowing cyan shadow around the input box to clearly show it is active */
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+    /* Slightly darkens the background of the active input for contrast */
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Style the submit button */
+.add-collections button {
+    /* Pushes the button down slightly from the last input field */
+    margin-top: 10px;
+    /* Adds vertical and horizontal padding to make the button large and clickable */
+    padding: 15px 30px;
+    /* Removes the default button border */
+    border: none;
+    /* Rounds the corners of the button heavily to create a pill shape */
+    border-radius: 30px;
+    /* Uses a linear gradient from bright cyan to a deeper blue for the background color */
+    background: linear-gradient(45deg, #00f0ff, #0066ff);
+    /* Sets the button text color to white */
+    color: white;
+    /* Sets a strong, readable text size */
+    font-size: 1.1rem;
+    /* Makes the button text bold */
+    font-weight: bold;
+    /* Changes the mouse cursor to a pointer when hovering */
+    cursor: pointer;
+    /* Spaces out the letters slightly for a sci-fi, cinematic feel */
+    letter-spacing: 1px;
+    /* Ensures smooth animation when hovering over the button */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* What happens when the user hovers their mouse over the submit button */
+.add-collections button:hover {
+    /* Moves the button up slightly to simulate a pressing or floating effect */
+    transform: translateY(-3px);
+    /* Increases the cyan glow behind the button to make it visually 'pop' */
+    box-shadow: 0 10px 20px rgba(0, 240, 255, 0.4);
+}
